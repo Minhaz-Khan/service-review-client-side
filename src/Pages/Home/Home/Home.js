@@ -10,11 +10,14 @@ import photo7 from '../../../asset/image for assignment/freemain_51_682023-16372
 import photo8 from '../../../asset/image for assignment/pexels-ankur-kumar-3872626.jpg'
 import photo9 from '../../../asset/image for assignment/WEDDING-PHOTO_04.jpg'
 
+
 const Home = () => {
+
+
     return (
         <div>
             <section className="py-6 dark:bg-gray-800 dark:text-gray-50  grid lg:grid-cols-12 grid-cols-1 ">
-                <div className='col-span-5 my-auto'>
+                <div className='col-span-5 my-auto mx-5 text-center'>
                     <h1 className='text-7xl font-semibold text-gray-400 mb-5'>
                         <span className='text-violet-700'>Get ready</span> for the <br />
                         best day ever.</h1>
