@@ -15,7 +15,6 @@ const Services = () => {
     return (
         <div className='mx-40 grid lg:grid-cols-3 grid-cols-1 justify-items-center gap-y-10'>
             {services.map(service => <Service service={service}></Service>)}
-            {console.log(services)}
         </div>
     );
 };

@@ -2,16 +2,15 @@ import React, { useContext, useState } from 'react';
 import { BsXLg } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../AuthContext/AuthProvider/AuthProvider';
 // import logo from '../../256-2562043_vector-logo-design-free-online-education-logo-png.png'
-// import { AuthContext } from '../../AuthProvider/AuthProvider';
+
 
 const Header = () => {
-    // const { user, logout } = useContext();
-    const logout = '';
-    const user = '';
+    const { user, LogOut } = useContext(AuthContext);
     const [open, setOpen] = useState(false);
     const handleLogOut = () => {
-        logout()
+        LogOut()
             .then(() => { })
             .catch((e) => {
                 console.error(e);
@@ -43,11 +42,9 @@ const Header = () => {
                             </> :
                             <div className='font-normal'>
                                 <Link to={'/login'}>
-                                    <button className='mr-3 px-5 py-2 bg-blue-600 rounded-3xl text-white'>Login</button>
+                                    <button className='mr-3 px-5 py-2 hover:bg-violet-700 border-violet-700 border-2 duration-200 text-black rounded-3xl hover:text-white'>Login</button>
                                 </Link>
-                                <Link to={'/signup'}>
-                                    <button className='border-2 rounded-3xl px-5 py-2 hover:bg-slate-400 hover:text-white'>Sign Up</button>
-                                </Link>
+
                             </div>
                     }
 
