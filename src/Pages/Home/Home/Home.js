@@ -9,6 +9,7 @@ import photo6 from '../../../asset/image for assignment/Fort-Wayne-Freemasons-Ha
 import photo7 from '../../../asset/image for assignment/freemain_51_682023-163726093957708.jpeg'
 import photo8 from '../../../asset/image for assignment/pexels-ankur-kumar-3872626.jpg'
 import photo9 from '../../../asset/image for assignment/WEDDING-PHOTO_04.jpg'
+import HomeServices from '../../HomeServicesCart/HomeServices';
 
 
 const Home = () => {
@@ -42,7 +43,7 @@ const Home = () => {
                     <img src={photo9} alt="" className="w-full h-full col-span-1 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 dark:bg-gray-500 aspect-square" />
                 </div>
             </section>
-            <Services></Services>
+            <HomeServices></HomeServices>
         </div>
     );
 };

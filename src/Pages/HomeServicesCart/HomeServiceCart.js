@@ -2,8 +2,7 @@ import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-
-const Service = ({ service }) => {
+const HomeServiceCart = ({ service }) => {
     const { Image, title, details } = service;
     return (
         <div className="max-w-md rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
@@ -23,4 +22,4 @@ const Service = ({ service }) => {
     );
 };
 
-export default Service;
+export default HomeServiceCart;
