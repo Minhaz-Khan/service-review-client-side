@@ -1,9 +1,10 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from 'react-router-dom';
 
 const HomeServiceCart = ({ service }) => {
-    const { Image, title, details } = service;
+    const { Image, title, details, _id, price } = service;
     return (
         <div className="max-w-md rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
             <PhotoProvider>
@@ -15,8 +16,9 @@ const HomeServiceCart = ({ service }) => {
                 <div className="space-y-2">
                     <h2 className="text-3xl font-semibold tracking-wide">{title}</h2>
                     <p className="dark:text-gray-100">{details.slice(0, 100) + "..."}</p>
+                    <p>Price: ${price}</p>
                 </div>
-                <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-700 text-gray-100 dark:bg-violet-700 dark:text-gray-900">Details</button>
+                <Link to={`/service/${_id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-700 text-gray-100 dark:bg-violet-700 dark:text-gray-900">Details</button></Link>
             </div>
         </div>
     );
