@@ -18,7 +18,7 @@ const HomeServices = () => {
                 {services.map(service => <HomeServiceCart key={service._id} service={service}></HomeServiceCart>)}
             </div>
             <div className='text-center mt-5'>
-                <Link to={'/services'}><button className='px-5 py-2 bg-slate-400 rounded-md'>See all</button></Link>
+                <Link to={'/services'}><button className='px-8 py-2 hover:bg-slate-400 bg-slate-200 rounded-md duration-150'>See all</button></Link>
             </div>
         </div>
     );

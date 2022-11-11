@@ -5,14 +5,15 @@ import Review from './Review';
 
 const ServiceDetails = () => {
     const [reviews, setReviews] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/reviews')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
+
     const { user } = useContext(AuthContext)
     const service = useLoaderData();
     const { Image, details, price, rating, title, _id } = service;
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id, reviews])
     const handleFeedback = event => {
         event.preventDefault();
         const form = event.target;
@@ -22,11 +23,13 @@ const ServiceDetails = () => {
         const reviewDetails = {
             name: user.displayName,
             image: user.photoURL,
+            email: user.email,
             rating: rating,
             review: feedback,
-            reviewID: _id,
+            serviceId: _id,
+
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -34,7 +37,8 @@ const ServiceDetails = () => {
             body: JSON.stringify(reviewDetails)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setReviews(data))
+
 
     }
     return (
@@ -56,10 +60,10 @@ const ServiceDetails = () => {
                     <form onSubmit={handleFeedback}>
 
                         <div className="flex flex-col max-w-xl p-8 shadow-lg rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
-                            <div className='flex items-center space-x-2'>
+                            {user?.uid ? <div className='flex items-center space-x-2'>
                                 <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full' />
                                 <p>{user?.displayName}</p>
-                            </div>
+                            </div> : ''}
                             <div className="flex flex-col items-center w-full">
                                 <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                                 <div className="flex flex-col items-center py-6 space-y-3">
@@ -83,7 +87,7 @@ const ServiceDetails = () => {
                     </form>
                 </div>
                 <div className='col-span-8'>
-                    {reviews.map(feedback => <Review key={feedback._id} feedback={feedback}></Review>)}
+                    {reviews.length !== 0 ? reviews.map(feedback => <Review key={feedback._id} feedback={feedback}></Review>) : <h1 className='text-5xl text-center'>No Review !!</h1>}
                 </div>
             </div>
 

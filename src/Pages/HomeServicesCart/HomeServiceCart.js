@@ -18,7 +18,7 @@ const HomeServiceCart = ({ service }) => {
                     <p className="dark:text-gray-100">{details.slice(0, 100) + "..."}</p>
                     <p>Price: ${price}</p>
                 </div>
-                <Link to={`/service/${_id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-700 text-gray-100 dark:bg-violet-700 dark:text-gray-900">Details</button></Link>
+                <Link to={`/service/${_id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-500 text-gray-100 hover:bg-violet-700 duration-150 dark:text-gray-900">Details</button></Link>
             </div>
         </div>
     );

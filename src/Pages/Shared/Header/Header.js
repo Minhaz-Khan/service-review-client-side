@@ -25,13 +25,17 @@ const Header = () => {
                 </div>
                 <button className='lg:hidden text-3xl' onClick={() => setOpen(!open)}>{open ? <BsXLg></BsXLg> : <GoListUnordered></GoListUnordered>}</button>
             </div>
-            <div className={`text-2xl  font-medium absolute lg:static duration-1000 ease-in-out ${open ? 'top-[88px]' : 'top-[-300px]'} w-full  bg-slate-100 lg:bg-transparent lg:py-0 py-3 z-[-1]`}>
+            <div className={`text-xl   absolute lg:static duration-1000 ease-in-out ${open ? 'top-[88px]' : 'top-[-300px]'} w-full  bg-slate-100 lg:bg-transparent lg:py-0 py-3 z-[-1]`}>
                 <ul className='lg:flex lg:justify-end text-center items-center lg:space-x-10'>
                     <li><NavLink to='/home' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>Home</NavLink></li>
 
                     <li><NavLink to='/services' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>Services</NavLink></li>
 
-                    <li><NavLink to='/faq' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>FAQ</NavLink></li>
+                    {user?.uid && <>
+                        <li><NavLink to='/myreview' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>My Review</NavLink></li>
+
+                        <li><NavLink to='/addservice' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>Add Service</NavLink></li>
+                    </>}
 
                     <li><NavLink to='/blog' className={({ isActive }) => isActive ? 'border-b-2 border-indigo-700 duration-200' : 'text-black hover:text-indigo-700 duration-500'}>Blog</NavLink></li>
                     {
