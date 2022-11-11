@@ -3,10 +3,14 @@ import Main from '../../LayOut/Main'
 import AddService from '../../Pages/AddService/AddService'
 import Home from '../../Pages/Home/Home/Home'
 import Login from '../../Pages/Login/Login'
+import EditReview from '../../Pages/MyReview/EditReview'
 import MyReview from '../../Pages/MyReview/MyReview'
 import ServiceDetails from '../../Pages/ServiceDetails/ServiceDetails'
 import Services from '../../Pages/Services/Services'
 import SignUp from '../../Pages/SignUp/SignUp'
+import PrivetRoute from '../../PrivetRoute/PrivetRoute'
+
+
 
 export const router = createBrowserRouter([
     {
@@ -33,11 +37,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myreview',
-                element: <MyReview></MyReview>
+                element: <PrivetRoute><MyReview></MyReview></PrivetRoute>,
+            },
+            {
+                path: '/editreview/:id',
+                element: <EditReview></EditReview>,
+                loader: ({ params }) => fetch(`http://localhost:5000/myreviewDetails/${params.id}`)
             },
             {
                 path: '/addservice',
-                element: <AddService></AddService>
+                element: <PrivetRoute><AddService></AddService></PrivetRoute>
             },
             {
                 path: '/login',
