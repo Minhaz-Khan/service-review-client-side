@@ -21,7 +21,7 @@ const Header = () => {
             <div className='flex lg:px-0 px-4 justify-between '>
                 <div className='flex items-center'>
                     <img src="" alt="" className='w-[80px]' />
-                    <Link to='/'><h1 className='lg:text-5xl text-3xl font-semibold NavTitle text-'>Creative <span className='text-violet-700'>Studio</span></h1></Link>
+                    <Link to='/'><h1 className='lg:text-3xl text-2xl font-semibold NavTitle text-'>Creative <span className='text-violet-700'>Photography</span></h1></Link>
                 </div>
                 <button className='lg:hidden text-3xl' onClick={() => setOpen(!open)}>{open ? <BsXLg></BsXLg> : <GoListUnordered></GoListUnordered>}</button>
             </div>
