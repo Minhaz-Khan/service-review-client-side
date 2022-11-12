@@ -3,7 +3,7 @@ import { BsXLg } from "react-icons/bs";
 import { GoListUnordered } from "react-icons/go";
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../AuthContext/AuthProvider/AuthProvider';
-// import logo from '../../256-2562043_vector-logo-design-free-online-education-logo-png.png'
+import logo from '../../../asset/favicon.jpg'
 
 
 const Header = () => {
@@ -20,8 +20,8 @@ const Header = () => {
         <div className='grid lg:grid-cols-2 grid-cols-1 justify-between items-center lg:px-20 py-5 relative bg-slate-50 z-10'>
             <div className='flex lg:px-0 px-4 justify-between '>
                 <div className='flex items-center'>
-                    <img src="" alt="" className='w-[80px]' />
-                    <Link to='/'><h1 className='lg:text-3xl text-2xl font-semibold NavTitle text-'>Creative <span className='text-violet-700'>Photography</span></h1></Link>
+                    <img src={logo} alt="" className='w-20 -rotate-12 lg:absolute left-5 top-2' />
+                    <Link to='/'><h1 className='lg:text-3xl text-2xl font-semibold NavTitle text-'>reative <span className='text-violet-700'>Photography</span></h1></Link>
                 </div>
                 <button className='lg:hidden text-3xl' onClick={() => setOpen(!open)}>{open ? <BsXLg></BsXLg> : <GoListUnordered></GoListUnordered>}</button>
             </div>
