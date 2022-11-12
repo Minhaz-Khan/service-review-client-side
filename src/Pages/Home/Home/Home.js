@@ -1,5 +1,4 @@
 import React from 'react';
-import Services from '../../Services/Services';
 import photo1 from '../../../asset/image for assignment/bridal-5.jpg'
 import photo2 from '../../../asset/image for assignment/05.-emotion-of-the-day-01.jpg'
 import photo3 from '../../../asset/image for assignment/1522851909-shutterstock_578128279.jpg'

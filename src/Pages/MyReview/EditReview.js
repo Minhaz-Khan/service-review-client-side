@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const EditReview = () => {
     const editReview = useLoaderData();
     const [reviews, setReviews] = useState(editReview)
     console.log(reviews);
-    const { rating, review, email, image, name, serviceId } = reviews;
+    const { rating, review } = reviews;
 
     const handleEditFrom = event => {
         event.preventDefault();
