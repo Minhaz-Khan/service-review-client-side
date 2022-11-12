@@ -9,7 +9,7 @@ const MyReview = () => {
     const { user, LogOut } = useContext(AuthContext);
     const [reviews, setMyReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myreview/${user?.email}`, {
+        fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/myreview/${user?.email}`, {
             headers: {
                 authoraization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -36,7 +36,7 @@ const MyReview = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/myreviewDetails/${_id}`, {
+                    fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/myreviewDetails/${_id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

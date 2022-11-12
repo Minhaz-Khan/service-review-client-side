@@ -18,7 +18,7 @@ const EditReview = () => {
         delete updateReview._id
         setReviews(updateReview)
 
-        fetch(`http://localhost:5000/myreviewDetails/${editReview._id}`, {
+        fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/myreviewDetails/${editReview._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

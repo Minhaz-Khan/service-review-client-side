@@ -29,12 +29,12 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://service-review-assignment-server-minhaz-khan.vercel.app/services')
             },
             {
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/services/${params.id}`)
             },
             {
                 path: '/myreview',
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
             {
                 path: '/editreview/:id',
                 element: <EditReview></EditReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myreviewDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/myreviewDetails/${params.id}`)
             },
             {
                 path: '/addservice',

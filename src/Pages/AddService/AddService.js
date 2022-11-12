@@ -17,7 +17,7 @@ const AddService = () => {
             rating: 5,
             title: serviceName
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://service-review-assignment-server-minhaz-khan.vercel.app/services', {
             method: 'POST',
 
             headers: {

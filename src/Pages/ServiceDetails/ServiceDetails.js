@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     const { Image, details, price, rating, title, _id } = service;
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://service-review-assignment-server-minhaz-khan.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id])
@@ -31,7 +31,7 @@ const ServiceDetails = () => {
             timestamp: new Date()
 
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://service-review-assignment-server-minhaz-khan.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
