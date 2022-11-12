@@ -5,7 +5,7 @@ const EditReview = () => {
     const editReview = useLoaderData();
     const [reviews, setReviews] = useState(editReview)
     console.log(reviews);
-    const { rating, review, _id, email, image, name, serviceId } = reviews;
+    const { rating, review, email, image, name, serviceId } = reviews;
 
     const handleEditFrom = event => {
         event.preventDefault();
@@ -15,6 +15,7 @@ const EditReview = () => {
         const updateReview = { ...reviews };
         updateReview['rating'] = newRating;
         updateReview['review'] = comment;
+        delete updateReview._id
         setReviews(updateReview)
 
         fetch(`http://localhost:5000/myreviewDetails/${editReview._id}`, {
@@ -22,7 +23,7 @@ const EditReview = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(reviews)
+            body: JSON.stringify(updateReview)
         })
     }
 

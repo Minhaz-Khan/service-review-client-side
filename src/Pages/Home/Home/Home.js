@@ -50,7 +50,7 @@ const Home = () => {
                 <div>
                     <img src="https://images.squarespace-cdn.com/content/v1/5ed648d4e51b067fbfc8ea14/ae42e78a-6d2b-4456-bcc9-035e3bd65558/martailardo_weddingphotography_london_41.jpg?format=750w" alt="" className='ml-auto py-10' />
                 </div>
-                <div className='my-auto px-20'>
+                <div className='my-auto px-20 pb-10'>
                     <h2 className='text-2xl font-thin'>PHOTOGRAPHS LIVE FOREVER</h2>
                     <div className='font-thin'>
                         <p className='mt-5 mb-10'>I’ll tell you the most important part of what I do: I capture moments in your life that you'll want to cherish for life  and that will give you goosebumps 10 years from now. </p>

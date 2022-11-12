@@ -6,7 +6,7 @@ import MyReviewDetails from './MyReviewDetails';
 
 const MyReview = () => {
     UseTitle('My Review')
-    const { user } = useContext(AuthContext);
+    const { user, LogOut } = useContext(AuthContext);
     const [reviews, setMyReviews] = useState([])
     useEffect(() => {
         fetch(`http://localhost:5000/myreview/${user?.email}`, {
@@ -14,7 +14,12 @@ const MyReview = () => {
                 authoraization: `Bearer ${localStorage.getItem('token')}`
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    LogOut()
+                }
+                return res.json()
+            })
             .then(data => {
                 console.log(data)
                 setMyReviews(data);
@@ -58,8 +63,8 @@ const MyReview = () => {
     }
 
     return (
-        <div className='h-screen'>
-            {reviews.length !== 0 ? reviews.map(feedback => <MyReviewDetails key={feedback._id} feedback={feedback} handleReviewDelete={handleReviewDelete}></MyReviewDetails>) : <><h1 className='text-5xl text-center mt-20'>No Review !!</h1></>}
+        <div className='h-screen mt-10'>
+            {Array.isArray(reviews) && reviews.length !== 0 ? reviews.map(feedback => <MyReviewDetails key={feedback._id} feedback={feedback} handleReviewDelete={handleReviewDelete}></MyReviewDetails>) : <><h1 className='text-5xl text-center mt-20'>No Review !!</h1></>}
         </div>
     );
 };

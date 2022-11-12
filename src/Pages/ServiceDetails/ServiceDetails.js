@@ -47,11 +47,11 @@ const ServiceDetails = () => {
     }
     return (
         <section >
-            <div className='grid grid-cols-12 shadow-lg w-6/12 mx-auto '>
-                <div className='col-span-4'>
+            <div className='grid grid-cols-12 shadow-lg lg:w-6/12  mx-auto '>
+                <div className='lg:col-span-4 col-span-12'>
                     <img src={Image} alt="" className='' />
                 </div>
-                <div className='col-span-8 m-5 space-y-2'>
+                <div className='lg:col-span-8 col-span-12 m-5 space-y-2'>
                     <p className='text-2xl font-semibold '>{title}</p>
                     <p className='text-gray-400'>{details}</p>
                     <p>Price: ${price}</p>
@@ -60,7 +60,7 @@ const ServiceDetails = () => {
             </div>
             <hr className='my-16' />
             <div className='grid grid-cols-12'>
-                <div className=' my-10 p-5 col-span-4 '>
+                <div className=' my-10 p-5 lg:col-span-4 col-span-12'>
                     <form onSubmit={handleFeedback}>
 
                         <div className="flex flex-col max-w-xl p-8 shadow-lg rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
@@ -90,7 +90,7 @@ const ServiceDetails = () => {
                         </div>
                     </form>
                 </div>
-                <div className='col-span-8'>
+                <div className='lg:col-span-8 col-span-12'>
                     {reviews.length !== 0 ? reviews.map(feedback => <Review key={feedback._id} feedback={feedback}></Review>) : <h1 className='text-5xl text-center'>No Review !!</h1>}
                 </div>
 

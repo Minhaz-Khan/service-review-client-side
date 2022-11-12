@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const HomeServiceCart = ({ service }) => {
     const { Image, title, details, _id, price } = service;
     return (
-        <div className="max-w-md rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+        <div className="lg:max-w-md w-ful rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
             <PhotoProvider>
                 <PhotoView src={Image}>
                     <img src={Image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />

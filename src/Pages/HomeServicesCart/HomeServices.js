@@ -14,7 +14,7 @@ const HomeServices = () => {
     }, [])
     return (
         <div >
-            <div className='mx-40 grid lg:grid-cols-3 grid-cols-1 justify-items-center gap-y-10'>
+            <div className='lg:mx-40 mx-5 grid lg:grid-cols-3 grid-cols-1 justify-items-center gap-y-10'>
                 {services.map(service => <HomeServiceCart key={service._id} service={service}></HomeServiceCart>)}
             </div>
             <div className='text-center mt-5'>
