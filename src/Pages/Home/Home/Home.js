@@ -10,11 +10,11 @@ import photo7 from '../../../asset/image for assignment/freemain_51_682023-16372
 import photo8 from '../../../asset/image for assignment/pexels-ankur-kumar-3872626.jpg'
 import photo9 from '../../../asset/image for assignment/WEDDING-PHOTO_04.jpg'
 import HomeServices from '../../HomeServicesCart/HomeServices';
+import UseTitle from '../../../UseTitle/UseTitle';
 
 
 const Home = () => {
-
-
+    UseTitle('Home')
     return (
         <div>
             <section className="py-6 dark:bg-gray-800 dark:text-gray-50  grid lg:grid-cols-12 grid-cols-1 ">

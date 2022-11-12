@@ -1,6 +1,8 @@
 import React from 'react';
+import UseTitle from '../../UseTitle/UseTitle';
 
 const AddService = () => {
+    UseTitle('Add Service')
     const handleAddService = event => {
         event.preventDefault();
         const form = event.target;
