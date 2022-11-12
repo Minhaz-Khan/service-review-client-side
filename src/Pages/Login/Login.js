@@ -1,7 +1,8 @@
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import { AuthContext } from '../../AuthContext/AuthProvider/AuthProvider';
 import UseTitle from '../../UseTitle/UseTitle';
 
@@ -17,13 +18,28 @@ const Login = () => {
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
-        const email = form.name.value;
+        const email = form.email.value;
         const password = form.password.value;
         LogIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                alert('login succesfully');
+                const currentUser = {
+                    user: user.email,
+                }
+                //jws verify
+                fetch(`http://localhost:5000/jwt`, {
+                    method: 'Post',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('token', data.token)
+                    })
+                swal("Log in!", "Log in successFully", "success")
                 navigate(from, { replace: true })
 
             })
@@ -34,6 +50,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal("Log in!", "Log in successFully", "success")
             })
             .then(e => console.log(e))
     }
@@ -42,6 +59,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal("Log in!", "Log in successFully", "success")
             })
             .catch(e => console.log(e))
     }

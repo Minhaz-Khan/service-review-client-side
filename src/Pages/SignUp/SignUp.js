@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import { AuthContext } from '../../AuthContext/AuthProvider/AuthProvider';
 import UseTitle from '../../UseTitle/UseTitle';
 
@@ -17,6 +18,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal("SignUP!", "SignUp successFully", "success")
                 navigate('/')
 
 
